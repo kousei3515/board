@@ -1,5 +1,7 @@
 
 <?php
+session_start()
+
  $message = '';
  try {
      $DBSERVER = 'localhost';
@@ -31,6 +33,10 @@
      $result = $stmt->execute();
      if($result) {
          $message = 'ユーザーを作成しました';
+         $_SESSION['id'] = $pdo->lastInsertId();
+         $_SESSION['name'] = $name;
+         $_SESSION['mail'] = $mail;
+         $_SESSION['password'] = $password;
      } else {
        $message = '登録に失敗しました';
      }
