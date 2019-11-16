@@ -20,7 +20,7 @@ try {
 if(!empty($_POST['title'])) {
     $title = $_POST['title'];
 
-    $sql = 'INSERT INTO `board` (title, created, modified)';
+    $sql = 'INSERT INTO `boards` (title, created, modified)';
     $sql .= ' VALUES (:title, NOW(), NOW())';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':title', $title, \PDO::PARAM_STR);
